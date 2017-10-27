@@ -17,12 +17,12 @@ func main() {
 
 func index(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.UserAgent())
-	w.WriteHeader(http.StatusOK)
-	fmt.Fprintln(w, "hello http")
+	w.WriteHeader(http.StatusInternalServerError)
+	fmt.Fprintln(w, "O_o")
 }
 
 func health(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.UserAgent())
-	w.WriteHeader(http.StatusOK)
-	fmt.Fprintln(w, "OK")
+	w.WriteHeader(http.StatusInternalServerError)
+	fmt.Fprintln(w, "KO")
 }
