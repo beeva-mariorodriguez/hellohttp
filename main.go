@@ -9,6 +9,8 @@ import (
 	"github.com/gorilla/mux"
 )
 
+const version = "0.1"
+
 func main() {
 	log.Println("starting hellohttp ...")
 	router := mux.NewRouter()
@@ -21,7 +23,7 @@ func index(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.UserAgent())
 	w.WriteHeader(http.StatusOK)
 	h, _ := os.Hostname()
-	fmt.Fprintf(w, "%s > hello http\n", h)
+	fmt.Fprintf(w, "%s > hello http %s\n", h, version)
 }
 
 func health(w http.ResponseWriter, r *http.Request) {
