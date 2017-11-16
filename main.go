@@ -9,7 +9,7 @@ import (
 	"github.com/gorilla/mux"
 )
 
-const version = "0.3"
+const version = "0.4"
 
 func main() {
 	log.Println("starting hellohttp ...")
