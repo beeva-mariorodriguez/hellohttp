@@ -4,11 +4,13 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gorilla/mux"
 )
 
 func main() {
+	log.Println("starting hellohttp ...")
 	router := mux.NewRouter()
 	router.HandleFunc("/", index).Methods("GET")
 	router.HandleFunc("/health", health).Methods("GET")
@@ -18,7 +20,8 @@ func main() {
 func index(w http.ResponseWriter, r *http.Request) {
 	log.Println(r.UserAgent())
 	w.WriteHeader(http.StatusOK)
-	fmt.Fprintln(w, "hello http")
+	h, _ := os.Hostname()
+	fmt.Fprintf(w, "%s > hello http\n", h)
 }
 
 func health(w http.ResponseWriter, r *http.Request) {
